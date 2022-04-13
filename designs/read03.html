@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+
+    <!-- Jquery -->
+    <script src="./jquery-3.6.0.min.js"></script>
+
+    <style>
+      .content-container {
+        height: 500px;
+        overflow-y: scroll;
+        box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028), 12.5px 12.5px 10px rgba(0, 0, 0, 0.035), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05), 100px 100px 80px rgba(0, 0, 0, 0.07);
+      }
+      .content {
+        font-family: "PT Serif", serif;
+        font-size: 16px;
+        line-height: 26px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+
+        margin: 2rem;
+      }
+
+      .content-container::-webkit-scrollbar {
+        width: 1px;
+      }
+
+      @media screen and (min-width: 600px) {
+        .content {
+          font-size: 18px;
+          line-height: 30px;
+        }
+      }
+
+      .audio-container {
+        height: 500px;
+
+        background: url("./headphones.png") no-repeat center center fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" style="height: 50px"></div>
+
+    <div class="container">
+      <div class="input-group mb-3">
+        <input id="urlBox" type="text" class="form-control" placeholder="https://" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+        <div class="input-group-append">
+          <button id="submitBtn" class="btn btn-outline-secondary mx-2" type="button">Declutter</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="height: 50px"></div>
+
+    <div class="container content-container">
+      <p class="content" id="content">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non neque error rerum qui dignissimos nostrum. Eligendi quod velit in asperiores ullam iste, quae fugit dicta odio dolorem ea deleniti, expedita nihil at voluptatibus accusamus, iusto quaerat repudiandae consequatur veritatis reprehenderit officia quos doloremque? Quia debitis iure enim a unde accusantium, reiciendis provident voluptas molestias harum ea, rerum mollitia ipsum fugit obcaecati quaerat eveniet, laborum vitae veritatis laboriosam nemo. Ipsa eaque laudantium sunt aperiam vitae adipisci? Nemo placeat rem exercitationem laudantium doloribus autem sit illum quam, amet distinctio eaque inventore animi rerum aliquid cum saepe? Repudiandae dolor quis facilis assumenda voluptatibus voluptate laboriosam totam cum tenetur, obcaecati nobis, doloribus nihil architecto fuga ipsam optio velit, impedit atque dicta qui perferendis provident. Hic enim ut accusamus ad vel obcaecati possimus a mollitia ducimus architecto reprehenderit nulla veniam rerum molestias voluptatem est repudiandae earum, molestiae quasi, beatae odio sequi quisquam eum aut. Maiores accusamus incidunt unde vel molestiae quam eveniet consequatur veniam in. Qui iusto reiciendis quaerat
+        soluta porro consequuntur delectus eius sapiente earum corporis illo fugit vitae, ducimus alias saepe consequatur autem beatae voluptatem ipsam quo mollitia. Quaerat aperiam quod molestias dolores omnis doloribus perspiciatis dignissimos voluptates, architecto quasi odit recusandae accusantium porro, excepturi at, eos facere iste. Quisquam magni ex dolorum excepturi deserunt minima consequuntur, ducimus repellat sit assumenda beatae praesentium voluptates debitis optio commodi suscipit autem quos. Fugit assumenda eos deserunt ducimus iure. Amet nostrum impedit reprehenderit aliquid minus possimus animi illo ut, non similique sit, aliquam expedita nobis repellendus unde? Possimus minus, rem placeat natus perspiciatis fuga aliquid corrupti, non laborum cumque debitis. Sunt quod eos illum iste, natus, quibusdam consequuntur sapiente voluptates dolor facilis sed excepturi aliquam nam animi temporibus est provident molestiae rem delectus eveniet quasi atque earum? Corrupti deleniti tempora reiciendis accusantium facere. Vero mollitia reprehenderit incidunt omnis saepe, accusamus, unde dicta eius quaerat nihil quod ipsum voluptatum esse, laudantium repellendus! Molestiae temporibus dolor accusantium autem harum
+        voluptates pariatur blanditiis debitis aliquid magnam fuga aliquam, adipisci beatae at porro nesciunt et odit natus provident quo! Illo at fugiat eos dicta libero veritatis beatae error recusandae quidem incidunt, nostrum voluptas est mollitia laborum quis magni molestiae maiores placeat quos tempora? Explicabo sequi ex reprehenderit. Numquam cupiditate in repudiandae fugiat totam, deleniti doloremque, voluptatum non velit culpa officia pariatur consequuntur commodi, harum enim rerum. Dolores dicta tempore architecto, ex nobis mollitia fugiat nesciunt distinctio obcaecati illo ad rem illum. Neque laborum soluta, incidunt unde perspiciatis exercitationem sapiente hic corporis, veritatis harum vero molestiae at odio similique. Eos fugit aliquam aperiam veritatis nobis quam iusto doloribus, in, officia amet accusantium nihil, atque illo. Quod qui explicabo aliquam officia aliquid id doloremque eius perferendis, fugiat in, obcaecati ex nostrum rerum eos, tempora esse. Eaque ea dolores ratione ipsum, optio perferendis voluptatum quas! Numquam, deleniti. Quos ab id aut soluta hic sunt illum veniam quaerat? Autem placeat iusto commodi voluptatum, libero corrupti veritatis! Explicabo esse veniam fugiat hic, enim, aliquam
+        optio amet pariatur neque similique ab! Facere adipisci nisi dolorem fugit!
+      </p>
+    </div>
+
+    <div class="container" style="height: 50px"></div>
+
+    <div class="container-fluid audio-container"></div>
+
+    <div class="container" style="height: 50px"></div>
+
+    <script>
+      $(document).ready(function () {
+        let urlBox = $("#urlBox");
+        let submitBtn = $("#submitBtn");
+
+        submitBtn.on("click", () => {
+          let url = urlBox.val();
+          console.log("url: ", url);
+
+          let data = {
+            url: url,
+          };
+
+          console.log("POST data: ", data);
+
+          fetch("/declutter", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((response) => {
+              response.json();
+            })
+            .then((data) => {
+              let content = $("#content");
+              content.val(data["contents"]);
+            });
+        });
+
+        urlBox.on("keyup", (event) => {
+          if (event.keyCode === 13) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            submitBtn.click();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
