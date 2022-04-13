@@ -5,7 +5,7 @@ from pprint import pprint
 import newspaper
 import pyttsx3
 from app import db
-from app.models import Article
+from app.models import Article, Feed
 from flask import (Blueprint, jsonify, render_template, request,
                    send_from_directory, current_app)
 from flask_login import current_user, login_required
@@ -18,9 +18,14 @@ def index():
     return "Server Up!"
 
 
-@articurate.route('/home')
+@articurate.route('/link')
 def get_home():
-    return render_template('home.html')
+    return render_template('link.html')
+
+
+@articurate.route('/text')
+def get_home():
+    return render_template('text.html')
 
 
 @articurate.route("/articurate", methods=['POST'])
@@ -76,11 +81,8 @@ def get_articurate():
     summary = article.summary
     article_entry.summary = summary
     # light weight : works well
-    
+
     # transformers
-    
-    
-    
 
     # tts
     engine = pyttsx3.init()
@@ -125,3 +127,15 @@ def get_articurate():
 def get_audio(filename):
     dir_path = os.path.join('data', 'audio')
     return send_from_directory(directory=dir_path, path=filename)
+
+
+@articurate.route("/feed")
+def get_feed():
+
+    # get the latest generated feed from database https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ix-pagination
+    feed = Feed.query.order_by(Feed.feed_generated.desc()).first()
+
+    # query all articles with feed id as foreign id
+    feed_articles = feed.articles
+
+    return render_template('feed.html', feed_articles=feed_articles)
