@@ -5,12 +5,12 @@ all of newspaper's features. Modify for your own needs.
 import nltk
 
 REQUIRED_CORPORA = [
-    'brown',  # Required for FastNPExtractor
-    'punkt',  # Required for WordTokenizer
-    'maxent_treebank_pos_tagger',  # Required for NLTKTagger
-    'movie_reviews',  # Required for NaiveBayesAnalyzer
-    'wordnet',  # Required for lemmatization and Wordnet
-    'stopwords'
+    "brown",  # Required for FastNPExtractor
+    "punkt",  # Required for WordTokenizer
+    "maxent_treebank_pos_tagger",  # Required for NLTKTagger
+    "movie_reviews",  # Required for NaiveBayesAnalyzer
+    "wordnet",  # Required for lemmatization and Wordnet
+    "stopwords",
 ]
 
 
@@ -21,5 +21,5 @@ def main():
     print("Finished.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

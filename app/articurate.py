@@ -21,52 +21,52 @@ def extract_with_metadata(url):
     article.download()
     article.parse()
 
-    print('authors: ', article.authors)
-    print('date: ', article.publish_date)
+    print("authors: ", article.authors)
+    print("date: ", article.publish_date)
 
     data = {
         "title": article.title,
         "publish_date": str(article.publish_date),
         "authors": ",".join([str(i) for i in article.authors]),
         "top_image": article.top_image,
-        "text": article.text
+        "text": article.text,
     }
     return data
 
 
 def clean_text_for_summary(text):
     # Removing urls
-    text = re.sub('http[s]?://\S+', '', text)
+    text = re.sub("http[s]?://\S+", "", text)
     # Removing square brackets and extra spaces
-    text = re.sub(r'\[[0-9]*\]', ' ', text)
-    text = re.sub(r'\s+', ' ', text)
+    text = re.sub(r"\[[0-9]*\]", " ", text)
+    text = re.sub(r"\s+", " ", text)
     # Removing special characters and digits but not punctuation
-    text = re.sub('.,:;[^a-zA-Z]', ' ', text)
-    text = re.sub(r'\s+', ' ', text)
+    text = re.sub(".,:;[^a-zA-Z]", " ", text)
+    text = re.sub(r"\s+", " ", text)
 
     return text
 
 
 def clean_text_for_audio(text):
     # Removing urls
-    text = re.sub('http[s]?://\S+', '', text)
+    text = re.sub("http[s]?://\S+", "", text)
     # Removing square brackets and extra spaces
-    text = re.sub(r'\[[0-9]*\]', ' ', text)
-    text = re.sub(r'\s+', ' ', text)
+    text = re.sub(r"\[[0-9]*\]", " ", text)
+    text = re.sub(r"\s+", " ", text)
     # Removing special characters and digits but not punctuation
-    text = re.sub('[^.,:;a-zA-Z]', ' ', text)
-    text = re.sub(r'\s+', ' ', text)
+    text = re.sub("[^.,:;a-zA-Z]", " ", text)
+    text = re.sub(r"\s+", " ", text)
 
     return text
 
 
 def declutter(text):
-    text = text.replace('\n\n', '\n')
+    text = text.replace("\n\n", "\n")
     return text
 
 
 def summarize(text, per):
-    nlp = spacy.load('en_core_web_sm')
+    nlp = spacy.load("en_core_web_sm")
     doc = nlp(text)
     tokens = [token.text for token in doc]
     word_frequencies = {}
@@ -79,7 +79,7 @@ def summarize(text, per):
                     word_frequencies[word.text] += 1
     max_frequency = max(word_frequencies.values())
     for word in word_frequencies.keys():
-        word_frequencies[word] = word_frequencies[word]/max_frequency
+        word_frequencies[word] = word_frequencies[word] / max_frequency
     sentence_tokens = [sent for sent in doc.sents]
     sentence_scores = {}
     for sent in sentence_tokens:
@@ -89,10 +89,10 @@ def summarize(text, per):
                     sentence_scores[sent] = word_frequencies[word.text.lower()]
                 else:
                     sentence_scores[sent] += word_frequencies[word.text.lower()]
-    select_length = int(len(sentence_tokens)*per)
+    select_length = int(len(sentence_tokens) * per)
     summary = nlargest(select_length, sentence_scores, key=sentence_scores.get)
     final_summary = [word.text for word in summary]
-    summary = ''.join(final_summary)
+    summary = "".join(final_summary)
 
     return summary
 
@@ -132,7 +132,7 @@ def articurate_from_text(text):
 
 def articurate_from_url(url):
 
-    f = open('log.txt', mode="a+", encoding="utf-8")
+    f = open("log.txt", mode="a+", encoding="utf-8")
 
     # download webpage and extract text
     text = extract(url)
@@ -162,7 +162,7 @@ def articurate_from_url(url):
     synthesize(text_for_audio, path)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     SAMPLE_URL = "https://medium.com/analytics-vidhya/text-summarization-using-spacy-ca4867c6b744"
 

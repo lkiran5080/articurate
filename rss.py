@@ -15,11 +15,11 @@ for entry in a.entries:
 
 pprint(urls)
 
-print('len: ', len(urls))
+print("len: ", len(urls))
 
 
 urls = random.choices(urls, k=20)
 
-print('rnd len: ', len(urls))
+print("rnd len: ", len(urls))
 
 pprint(urls)

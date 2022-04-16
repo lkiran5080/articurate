@@ -14,8 +14,7 @@ class User(db.Model, UserMixin):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, unique=True, primary_key=True)
-    account_created = db.Column(
-        db.DateTime, nullable=False, default=datetime.utcnow)
+    account_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     username = db.Column(db.String(60), nullable=False, index=True)
     email = db.Column(db.String(120), nullable=False)
     hashed_password = db.Column(db.String(120), nullable=False)
@@ -30,8 +29,7 @@ class Entry(db.Model):
     __tablename__ = "entries"
 
     id = db.Column(db.Integer, unique=True, primary_key=True)
-    entry_created = db.Column(
-        db.DateTime, nullable=False, default=datetime.utcnow)
+    entry_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     source_url = db.Column(db.String(240))
 
     title = db.Column(db.String(100))
@@ -55,8 +53,7 @@ class Feed(db.Model):
     __tablename__ = "feeds"
 
     id = db.Column(db.Integer, primary_key=True, unique=True)
-    feed_generated = db.Column(
-        db.DateTime, nullable=False, default=datetime.utcnow)
+    feed_generated = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     entries = db.relationship("Entry", lazy="dynamic")
 
