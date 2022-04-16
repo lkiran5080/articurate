@@ -17,6 +17,14 @@ pip -V
 # Install requirements
 pip install -r requirements.txt
 
+# Spacy requires additional setup
+pip install -U pip setuptools wheel
+pip install -U spacy
+python -m spacy download en_core_web_sm
+
+# Install required nltk corpus
+python3 setup_nltk.py
+
 # Create database (dev.db) using migration scripts
 flask db upgrade
 
@@ -26,19 +34,19 @@ py .\feed_generator.py
 # Run the application
 py .\flask_app.py
 
-# Install required nltk corpus
-python3 setup_nltk.py
+
 ```
 
 ---
 
-Storing only password hashes for security
-using bcrypt algo to hash
-handled by flask-bcrypt
+- Storing only password hashes for security
 
-Client side sessions
-httponly cookies
-handled by flask-login
+  - using bcrypt algo to hash
+  - handled by flask-bcrypt
+
+- Client side sessions
+  - httponly cookies
+  - handled by flask-login
 
 ---
 
