@@ -4,11 +4,18 @@ import uuid
 from flask import current_app
 from newspaper import Article
 
-from app import create_app, db
-from app.articurate import (clean_text_for_audio, clean_text_for_summary,
-                            declutter, extract, extract_with_metadata, gen_fn,
-                            summarize, synthesize)
-from app.models import Entry, Feed
+from app import create_app
+from app import db
+from app.articurate import clean_text_for_audio
+from app.articurate import clean_text_for_summary
+from app.articurate import declutter
+from app.articurate import extract
+from app.articurate import extract_with_metadata
+from app.articurate import gen_fn
+from app.articurate import summarize
+from app.articurate import synthesize
+from app.models import Entry
+from app.models import Feed
 
 app = create_app()
 

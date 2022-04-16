@@ -2,7 +2,8 @@ from datetime import datetime
 
 from flask_login import UserMixin
 
-from app import db, login_manager
+from app import db
+from app import login_manager
 
 
 @login_manager.user_loader
