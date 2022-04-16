@@ -128,7 +128,6 @@ if __name__ == "__main__":
         "https://timesofindia.indiatimes.com/gadgets-news/iqoo-neo-6-smartphone-launched-price-and-specifications/articleshow/90850040.cms",
         "https://timesofindia.indiatimes.com/gadgets-news/why-windows-users-can-skip-the-april-2022-update-from-microsoft/articleshow/90847766.cms",
     ]
-
     """ with app.app_context():
         feed_id = gen_feed_from_urls(sample_feed_urls) """
 

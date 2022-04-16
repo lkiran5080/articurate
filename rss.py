@@ -13,11 +13,9 @@ urls = []
 for entry in a.entries:
     urls.append(entry.link)
 
-
 pprint(urls)
 
 print("len: ", len(urls))
-
 
 urls = random.choices(urls, k=20)
 

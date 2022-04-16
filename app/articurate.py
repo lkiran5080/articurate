@@ -88,7 +88,8 @@ def summarize(text, per):
                 if sent not in sentence_scores.keys():
                     sentence_scores[sent] = word_frequencies[word.text.lower()]
                 else:
-                    sentence_scores[sent] += word_frequencies[word.text.lower()]
+                    sentence_scores[sent] += word_frequencies[
+                        word.text.lower()]
     select_length = int(len(sentence_tokens) * per)
     summary = nlargest(select_length, sentence_scores, key=sentence_scores.get)
     final_summary = [word.text for word in summary]
