@@ -1,3 +1,5 @@
+import random
+from pprint import pprint
 import feedparser
 
 FEED_URL = "https://www.theguardian.com/uk/rss"
@@ -9,14 +11,12 @@ a = feedparser.parse(FEED_URL)
 urls = []
 for entry in a.entries:
     urls.append(entry.link)
-    
-from pprint import pprint
+
 
 pprint(urls)
 
 print('len: ', len(urls))
 
-import random
 
 urls = random.choices(urls, k=20)
 
