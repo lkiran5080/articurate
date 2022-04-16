@@ -1,22 +1,22 @@
-from app.models import Article
+from app.models import Entry
 from flask_login import current_user
 import newspaper
 
 
 def articurate(url):
 
-    # TODO: create a new Articles entry
+    # TODO: create a new Entrys entry
     # TODO: save source_url
-    article_entry = Article(source_url=url, user_id=current_user.id)
+    entry = Entry(source_url=url, user_id=current_user.id)
 
     # TODO: download and parse the article
     # TODO: save metadata and content
-    article = newspaper.Article(url)
+    article = newspaper.Entry(url)
     article.download()
     article.parse()
 
     content = article.text
-    article_entry.content = content
+    entry.content = content
 
     # TODO: summarize contents
 
