@@ -5,16 +5,9 @@ from flask import current_app
 from newspaper import Article
 
 from app import create_app, db
-from app.articurate import (
-    clean_text_for_audio,
-    clean_text_for_summary,
-    declutter,
-    extract,
-    extract_with_metadata,
-    gen_fn,
-    summarize,
-    synthesize,
-)
+from app.articurate import (clean_text_for_audio, clean_text_for_summary,
+                            declutter, extract, extract_with_metadata, gen_fn,
+                            summarize, synthesize)
 from app.models import Entry, Feed
 
 app = create_app()

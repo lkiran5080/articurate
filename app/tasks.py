@@ -1,6 +1,7 @@
-from app.models import Entry
-from flask_login import current_user
 import newspaper
+from flask_login import current_user
+
+from app.models import Entry
 
 
 def articurate(url):

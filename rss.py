@@ -1,5 +1,6 @@
 import random
 from pprint import pprint
+
 import feedparser
 
 FEED_URL = "https://www.theguardian.com/uk/rss"

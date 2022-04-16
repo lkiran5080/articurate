@@ -5,27 +5,15 @@ from pprint import pprint
 
 import newspaper
 import pyttsx3
-from app import db
-from app.articurate import (
-    clean_text_for_audio,
-    clean_text_for_summary,
-    declutter,
-    extract,
-    extract_with_metadata,
-    gen_fn,
-    summarize,
-    synthesize,
-)
-from app.models import Entry, Feed, User
-from flask import (
-    Blueprint,
-    current_app,
-    jsonify,
-    render_template,
-    request,
-    send_from_directory,
-)
+from flask import (Blueprint, current_app, jsonify, render_template, request,
+                   send_from_directory)
 from flask_login import current_user, login_required
+
+from app import db
+from app.articurate import (clean_text_for_audio, clean_text_for_summary,
+                            declutter, extract, extract_with_metadata, gen_fn,
+                            summarize, synthesize)
+from app.models import Entry, Feed, User
 
 main = Blueprint("main", __name__)
 
