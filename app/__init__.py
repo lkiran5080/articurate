@@ -8,7 +8,10 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 migrate = Migrate()
 login_manager = LoginManager()
+login_manager.login_view = 'users.login'
+login_manager.login_message_category = 'info'
 bcrypt = Bcrypt()
+
 
 
 def create_app():
@@ -26,5 +29,7 @@ def create_app():
 
     from app.main.routes import main
     app.register_blueprint(main)
+    from app.users.routes import users
+    app.register_blueprint(users)
 
     return app

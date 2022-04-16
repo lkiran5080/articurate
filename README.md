@@ -1,6 +1,6 @@
 # Articurate - Declutter, Summarize, Listen
 
-> A work in progress
+A Flask based Web Application and REST API that uses various NLP techniques to declutter the web , summarize it and sysnthesize audiobook like chapters.
 
 ## Setup
 

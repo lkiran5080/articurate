@@ -13,6 +13,13 @@
         background-size: cover;
         background-repeat: no-repeat;
     }
+
+    #myFooter {
+        height: 100vh;
+        background-image: url("{{url_for('static', filename='images/myfooter.png')}}");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
 </style>
 
 <style>
@@ -35,7 +42,8 @@
     }
 
     #listenBtn:hover {
-        background-color: crimson;
+        background-color: black;
+        color: white;
 
     }
 </style>
@@ -170,6 +178,9 @@
     </div>
 </div>
 
+<div class="container" id="myFooter">
+
+</div>
 
 <!-- Howler.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"

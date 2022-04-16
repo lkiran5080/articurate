@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<div class="container my-4">
+<!-- <div class="container my-4">
     <div class="" style="display:inline-block">
         <span class="display-4 bg-dark text-light" style="font-weight: 900;">
             An<br>
@@ -10,36 +10,41 @@
         </span>
     </div>
 
-</div>
+</div> -->
 
+<div class="container-fluid" style="padding: 0 4rem 4rem 4rem;">
+    <img src="{{url_for('static', filename='images/feedbanner.png')}}" alt="" class="img-fluid shadow-box mx-auto"
+        style="height:600px; width:100%; border-radius:5px">
+</div>
 
 {% for article in feed_entries %}
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <div class="container">
-                <img src="{{article.top_image}}" class="img-fluid" alt="">
+            <div class="container" style="height:100%;padding:2rem">
+                <img src="{{article.top_image}}" class="img-fluid shadow-box" alt="" style="height: 100%;">
             </div>
 
         </div>
         <div class="col">
             <div class="container">
-                <p class="display-5">
-                    <span class="display-5" style="font-weight: 900;">
+                <p class="display-6">
+                    <!-- <span class="display-6" style="font-weight: 900;">
                         Title:
-                    </span>
+                    </span> -->
                     {{article.title}}
                 </p>
 
-                <a href="/e/{{article.id}}" class="btn btn-outline-dark">Open</a>
+                <a href="/e/{{article.id}}" class="btn btn-outline-dark">Open <i
+                        class="fa fa-solid fa-arrow-right"></i></a>
 
 
-                <p style="overflow: hidden;text-overflow: ellipsis ; display: -webkit-box;
+                <p style="margin-top:1rem;overflow: hidden;text-overflow: ellipsis ; display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;">
-                    <span class="" style="font-weight: 900;">
+                    <!-- <span class="" style="font-weight: 900;">
                         Summary:
-                    </span>
+                    </span> -->
                     {{article.summary}}
                 </p>
             </div>

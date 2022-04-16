@@ -2,7 +2,7 @@ from datetime import datetime
 
 from flask_login import UserMixin
 
-from app import db, login_manager
+from app import bcrypt, db, login_manager
 
 
 @login_manager.user_loader
@@ -23,6 +23,13 @@ class User(db.Model, UserMixin):
 
     def __repr__(self) -> str:
         return f"User('{self.id}','{self.account_created}','{self.username}', '{self.email}')"
+    
+    def set_password(self, password):
+        self.hashed_password = bcrypt.generate_password_hash(
+            password).decode('utf-8')
+
+    def check_password(self, password):
+        return bcrypt.check_password_hash(self.hashed_password, password)
 
 
 class Entry(db.Model):

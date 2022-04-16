@@ -8,7 +8,7 @@
       "source.organizeImports": true
     }
   },
-  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Enabled": false,
   "python.linting.enabled": false,
   "multiCommand.commands": [
     {
@@ -18,5 +18,6 @@
         "workbench.action.toggleActivityBarVisibility"
       ]
     }
-  ]
+  ],
+  "python.linting.pylintEnabled": true
 }

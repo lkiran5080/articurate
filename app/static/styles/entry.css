@@ -48,12 +48,10 @@
 }
 
 
-#summaryRow {
-    min-height: 500px;
-}
+#summaryRow {}
 
 #contentRow {
-    height: 100vh;
+
     min-height: 500px;
 }
 
@@ -63,7 +61,7 @@
 }
 
 #summary {
-    min-height: 400px;
+
     max-width: 80ch;
     font-family: monospace;
     font-size: 20px;

@@ -1,10 +1,13 @@
 import re
+import time
 import uuid
 from heapq import nlargest
 from string import punctuation
 
 import pyttsx3
+import soundfile as sf
 import spacy
+from memory_profiler import profile
 from newspaper import Article
 from spacy.lang.en.stop_words import STOP_WORDS
 
@@ -60,7 +63,26 @@ def declutter(text):
     text = text.replace('\n\n', '\n')
     return text
 
-def summarize(text, per):
+  
+def summarize(text):
+    summary = ''
+    try:
+        summarize_main(text=text)
+    except:
+        PER = 0.1
+        summary = summarize_fallback(text=text, per=PER)
+    
+    return summary
+
+def summarize_main(text):
+    
+    from transformers import pipeline
+    MODEL = "sshleifer/distilbart-cnn-12-6"
+    classifier = pipeline("summarization", model=MODEL, framework="pt")
+    summary = classifier(text)
+    return summary
+
+def summarize_fallback(text, per):
     nlp = spacy.load('en_core_web_sm')
     doc= nlp(text)
     tokens=[token.text for token in doc]
@@ -88,15 +110,21 @@ def summarize(text, per):
     summary=nlargest(select_length, sentence_scores,key=sentence_scores.get)
     final_summary=[word.text for word in summary]
     summary=''.join(final_summary)
-    
     return summary
-    
-
-def gen_fn():
-    new_filename = str(uuid.uuid4().hex) + ".mp3"
-    return new_filename
-
+  
 def synthesize(text, path):
+    try:
+        synthesize_main(text=text,path=path)
+    except:
+        synthesize_fallback(text=text,path=path)
+    
+def synthesize_main(text, path):
+    from espnet2.bin.tts_inference import Text2Speech
+    model = Text2Speech.from_pretrained("espnet/kan-bayashi_ljspeech_vits")
+    speech= model(text)["wav"]
+    sf.write("elon2.wav", speech.numpy(), model.fs, "PCM_16")
+
+def synthesize_fallback(text, path):
     engine = pyttsx3.init()
     # configure engine
     engine.setProperty("rate", 150)
@@ -108,55 +136,13 @@ def synthesize(text, path):
     engine.runAndWait()
 
 
-def articurate_from_text(text):
-    
-    # clean data for models
-    text_for_summary = clean_text_for_summary(text)
-    text_for_audio = clean_text_for_audio(text)
-    
-    # generate summary
-    per = 0.2
-    summary = summarize(text_for_summary, per)
-    
-    # synthesize audio
-    new_fn = gen_fn() 
-    path = new_fn
-    synthesize(text_for_audio, path)
-    
-    
-def articurate_from_url(url):
-    
-    f = open('log.txt', mode="a+", encoding="utf-8")
-    
-    # download webpage and extract text
-    text = extract(url)
-    
-    # clean data for models
-    text_for_summary = clean_text_for_summary(text)
-    text_for_audio = clean_text_for_audio(text)
-    
-    f.write("Text for summary:\n")
-    f.write(text_for_summary)
-    
-    f.write("Text for audio:\n")
-    f.write(text_for_audio)
-    
-    # generate summary
-    per = 0.2
-    summary = summarize(text_for_summary, per)
-    print("summary: ", summary)
-    
-    f.write("Summary:\n")
-    f.write(summary)
-    
-    f.close()
-    # synthesize audio
-    new_fn = gen_fn() 
-    path = new_fn
-    synthesize(text_for_audio, path)
+def gen_fn():
+    new_filename = str(uuid.uuid4().hex) + ".mp3"
+    return new_filename
 
 if __name__ =='__main__':
     
     SAMPLE_URL = "https://medium.com/analytics-vidhya/text-summarization-using-spacy-ca4867c6b744"
     
-    articurate_from_url(SAMPLE_URL)
+    #articurate_from_url(SAMPLE_URL)
+    pass
