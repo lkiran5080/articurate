@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "layout.html" %}
 {% block content %}
 
@@ -49,4 +50,57 @@
 </div>
 {% endfor %}
 
+=======
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container my-4">
+    <div class="" style="display:inline-block">
+        <span class="display-4 bg-dark text-light" style="font-weight: 900;">
+            An<br>
+            Articurated<br>
+            Feed ...
+        </span>
+    </div>
+
+</div>
+
+
+{% for article in feed_entries %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="container">
+                <img src="{{article.top_image}}" class="img-fluid" alt="">
+            </div>
+
+        </div>
+        <div class="col">
+            <div class="container">
+                <p class="display-5">
+                    <span class="display-5" style="font-weight: 900;">
+                        Title:
+                    </span>
+                    {{article.title}}
+                </p>
+
+                <a href="/e/{{article.id}}" class="btn btn-outline-dark">Open</a>
+
+
+                <p style="overflow: hidden;text-overflow: ellipsis ; display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;">
+                    <span class="" style="font-weight: 900;">
+                        Summary:
+                    </span>
+                    {{article.summary}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endfor %}
+
+>>>>>>> b54662d08f4b247b0ff3439965e1907184e36b87
 {% endblock %}

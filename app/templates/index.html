@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "layout.html" %}
 
 {% block content %}
@@ -57,4 +58,65 @@
 
 </div>
 
+=======
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<style>
+    .banner {
+        height: 100vh;
+        min-width: 500px;
+    }
+
+    .banner-1 {
+        background: url("{{url_for('static', filename='images/typewriterblackbg.png')}}") no-repeat center center fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .banner-2 {
+        background: url("{{url_for('static', filename='images/messright.png')}}") no-repeat center center fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .banner-3 {
+        background: url("{{url_for('static', filename='images/messleft.png')}}") no-repeat center center fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .banner-4 {
+        background: url("{{url_for('static', filename='images/messright.png')}}") no-repeat center center fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .banner-5 {
+        background: url("{{url_for('static', filename='images/typewriter3.png')}}") no-repeat center center fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
+
+
+<div class="container-fluid banner banner-1">
+
+</div>
+<div class="container-fluid banner banner-2">
+
+</div>
+<div class="container-fluid banner banner-3">
+
+</div>
+<div class="container-fluid banner banner-4">
+
+</div>
+<div class="container-fluid banner banner-5">
+
+</div>
+
+>>>>>>> b54662d08f4b247b0ff3439965e1907184e36b87
 {% endblock %}
