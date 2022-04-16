@@ -29,9 +29,9 @@ handled by flask-login
 Team Name : Codesmiths
 
 Lakshay
-https://github.com/lkiran5080  
+https://github.com/lkiran5080
 lakshay5080@gmail.com
 
 Sahil
-https://github.com/SahilKumar7  
+https://github.com/SahilKumar7
 sahil.kumar5729@gmail.com
