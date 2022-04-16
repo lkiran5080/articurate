@@ -1,6 +1,11 @@
 __pycache__
 venv
 
+*.mp3
+
 PLAN.md
 ERRORS.md
 Excalibur.md
+DEV.md
+SAMPLES.md
+SOLUTIONS.md

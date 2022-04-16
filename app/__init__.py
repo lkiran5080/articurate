@@ -5,8 +5,6 @@ from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
-
-
 db = SQLAlchemy()
 migrate = Migrate()
 login_manager = LoginManager()
@@ -26,7 +24,7 @@ def create_app():
     login_manager.init_app(app)
     bcrypt.init_app(app)
 
-    from app.articurate.routes import articurate
-    app.register_blueprint(articurate)
+    from app.main.routes import main
+    app.register_blueprint(main)
 
     return app

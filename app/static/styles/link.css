@@ -1,0 +1,158 @@
+.content-container {
+
+    overflow-y: scroll;
+    box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+        6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+        12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+        22.3px 22.3px 17.9px rgba(207, 137, 137, 0.042),
+        41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+        100px 100px 80px rgba(0, 0, 0, 0.07);
+}
+
+.content {
+    padding: 2rem;
+    font-family: "PT Serif", serif;
+    font-size: 16px;
+    line-height: 26px;
+    max-width: 80ch;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+
+    white-space: pre-wrap;
+
+    margin: 2rem;
+}
+
+.content-container::-webkit-scrollbar {
+    width: 1px;
+}
+
+@media screen and (min-width: 600px) {
+    .content {
+        font-size: 18px;
+        line-height: 30px;
+    }
+}
+
+
+#progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+
+    z-index: 2;
+}
+
+
+#summaryRow {}
+
+#contentRow {
+
+    min-height: 500px;
+}
+
+#title {
+    max-width: 40ch;
+    min-height: 80px;
+    text-transform: uppercase;
+}
+
+#summary {
+
+    max-width: 80ch;
+    font-family: monospace;
+    font-size: 20px;
+    line-height: 32px;
+    color: rgba(41, 41, 41, 1);
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+#content {
+    min-height: 500px;
+    max-width: 80ch;
+    font-family: monospace;
+    font-size: 20px;
+    line-height: 32px;
+    color: rgba(41, 41, 41, 1);
+    font-weight: 400;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+#controls {
+    position: sticky;
+    z-index: 10;
+}
+
+
+
+.audio-container {
+    height: 100vh;
+    min-height: 500px;
+
+    background: url("{{url_for('static', filename='images/headphones.png')}}") no-repeat center center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#inputRow {
+    height: 100vh;
+    background: url("{{url_for('static', filename='images/typewriter.jpg')}}") no-repeat center center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#metaRow {
+    display: none;
+}
+
+#summaryRow {
+    display: none;
+}
+
+#audioRow {
+    display: none;
+}
+
+#contentRow {
+    display: none;
+}
+
+#errors {
+    height: 100vh;
+    min-height: 500px;
+    display: none;
+}
+
+#myFooter {
+    display: none;
+}
+
+#listenBtn {
+    font-size: 20px;
+    font-family: Arial;
+    width: 140px;
+    height: 50px;
+    border-width: 3px;
+    color: black;
+    border-color: black;
+    font-weight: bold;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    box-shadow: 7px 7px 0px 0px black;
+
+    background: none;
+}
+
+#listenBtn:hover {
+    background: black;
+    color: white;
+    box-shadow: none;
+}
