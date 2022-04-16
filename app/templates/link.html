@@ -31,92 +31,42 @@
     <!-- Jquery -->
     <script src="{{url_for('static', filename='vendor/jquery-3.6.0.min.js')}}"></script>
 
-    <link rel="stylesheet" href="{{url_for('static', filename='styles/home.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/global.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/link.css')}}" />
 
     <style>
-        body,
-        html {
-            height: 100%;
-            width: 100%;
-        }
-
-        #summaryRow {
-
-            min-height: 500px;
-
-        }
-
-        #audioRow {
-
-            height: 100vh;
-            min-height: 500px;
-            background: url("{{url_for('static', filename='images/headphones.png')}}") no-repeat center center fixed;
+        #inputRow {
+            background: url("{{url_for('static', filename='images/mess3.png')}}") no-repeat center center fixed;
             background-size: cover;
             background-repeat: no-repeat;
-            overflow-x: hidden;
-            position: relative;
         }
 
-        #contentRow {
+        .audio-container {
             height: 100vh;
             min-height: 500px;
+
+            background: url("{{url_for('static', filename='images/typewriter3.png')}}") no-repeat center center fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
         }
 
-        #title {
-            max-width: 40ch;
-            min-height: 80px;
+        #myFooter {
+            height: 100vh;
+            background-image: url("{{url_for('static', filename='images/myfooter.png')}}");
+            background-size: contain;
+            background-repeat: no-repeat;
         }
 
-
-
-        #summary {
-            min-height: 400px;
-            max-width: 80ch;
-            font-family: monospace;
-            font-size: 20px;
-            line-height: 32px;
-            color: rgba(41, 41, 41, 1);
-            font-weight: 400;
-            word-wrap: break-word;
-
-        }
-
-        #content {
-            min-height: 500px;
-            max-width: 80ch;
-            font-family: "PT Serif", serif;
-            font-size: 20px;
-            line-height: 32px;
-            color: rgba(41, 41, 41, 1);
-            font-weight: 400;
-            word-wrap: break-word;
-
-        }
-
-        #controls {
-
-            top: 5%;
-            position: sticky;
-            z-index: 10;
+        #errors {
+            height: 100vh;
+            background-image: url("{{url_for('static', filename='images/sowwy.png')}}");
+            background-size: contain;
+            background-repeat: no-repeat;
         }
     </style>
+
     <style>
-        .audio-container {
 
-
-            background: url("{{url_for('static', filename='images/headphones.png')}}") no-repeat center center fixed;
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-        }
-
-        #inputRow {
-            height: 100vh;
-            background: url("{{url_for('static', filename='images/typewriter.jpg')}}") no-repeat center center fixed;
-            background-size: cover;
-            background-repeat: no-repeat;
-
-
-        }
     </style>
 
 </head>
@@ -153,26 +103,109 @@
     </div>
 
     <div class="container-fluid">
+
+        <div class="row" id="audioRow">
+            <div class="col">
+                <div style="position: relative;">
+                    <div class="audio-container siri-container" id="siriContainer">
+                        <div id="progress"></div>
+                    </div>
+                </div>
+                <!--             <div class="container" id="controls" style="width: 300px;">
+                    <div class="row">
+                        <div class="col-md">
+                            <button class="btn  m-1 mybtn bg" id="playBtn"><i class="fa fa-play"></i>
+                            </button>
+                        </div>
+                        <div class="col-md">
+                            <button class="btn  m-1 mybtn bg" id="pauseBtn"><i class="fa fa-pause"></i>
+                            </button>
+                        </div>
+                        <div class="col-md"><button class="btn  m-1 mybtn bg" id="stopBtn"><i class="fa fa-stop"></i>
+                            </button></div>
+                        <div class="col-md">
+                            <button class="btn m-1 mybtn bg" id="replayBtn"><i class="fa fa-repeat"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="container d-flex  flex-lg-row justify-content-center" id="controls">
+
+                    <button class="btn  m-1 mybtn bg" id="playBtn"><i class="fa fa-play"></i>
+                    </button>
+
+                    <button class="btn  m-1 mybtn bg" id="pauseBtn"><i class="fa fa-pause"></i>
+                    </button>
+                    <button class="btn  m-1 mybtn bg" id="stopBtn"><i class="fa fa-stop"></i>
+                    </button>
+                    <button class="btn m-1 mybtn bg" id="replayBtn"><i class="fa fa-repeat"></i>
+                    </button>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row" id="metaRow">
+            <div class="container-fluid">
+                <div class="col">
+                    <div class="container my-2">
+                        <button class="mybtn cta" id="listenBtn" style="border-radius: 0px;"><i
+                                class="fa fa-solid fa-play"></i>
+                            Listen</button>
+                    </div>
+                    <div class="container">
+                        <span class="display-6" style="font-weight: 900;">Title</span>
+                        <p class="display-5" id="title">
+
+                        </p>
+
+                        <p id="publishDate" class="text-muted">
+
+                        </p>
+
+
+                        <span style="font-weight: 900;">Authors: </span>
+                        <p id="publishDate" class="text-muted">
+
+                        </p>
+
+
+                        <span style="font-weight: 900;">Published on: </span>
+                        <p id="authors" class="text-muted">
+
+                        </p>
+
+
+                        <span style="font-weight: 900;">Original: </span>
+
+                        <p id="sourceUrl" style="">
+
+                        </p>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+    <div class="container-fluid my-4">
         <div class="row" id="summaryRow">
             <div class="container-fluid">
                 <div class="col">
                     <div class="container">
-                        <h6 class="display-6" style="font-weight: 900;">Title</h6>
-                        <p class="display-5" id="title">
-
-                        </p>
-                        <p id="publishDate" class="text-muted">
-
-                        </p>
-                        <p id="authors" class="text-muted">
-
-                        </p>
-                        <span style="font-weight: 300;">Original: </span>
-                        <span id="sourceUrl">
-
-                        </span>
-                        <h6 class="display-6" style="font-weight: 900;">Summary</h6>
-                        <p id="summary">
+                        <span class="display-6"
+                            style="background-color: black; color:white;font-weight: 900;">Summary</span>
+                        <p id="summary" class="my-4">
 
                         </p>
                     </div>
@@ -182,31 +215,15 @@
         </div>
 
     </div>
-
-    <div class="container-fluid">
-        <div class="row" id="audioRow">
-            <div class="col">
-                <div class="d-inline-flex flex-column" id="controls">
-                    <button class="btn btn-outline-light m-1" id="playBtn"><i class="fa fa-play"></i></button>
-                    <button class="btn btn-outline-light m-1" id="pauseBtn"><i class="fa fa-pause"></i></button>
-                    <button class="btn btn-outline-light m-1" id="stopBtn"><i class="fa fa-stop"></i></button>
-                    <button class="btn btn-outline-light m-1" id="replayBtn"><i class="fa fa-repeat"></i></button>
-                </div>
-                <div class="audio-container siri-container" id="siriContainer">
-                    <div id="progress"></div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid">
+    <div class="container-fluid my-4">
         <div class="row" id="contentRow">
 
             <div class="col">
+
                 <div class="container">
-                    <h6 class="display-6" style="font-weight: 900;">Decluttered</h6>
-                    <p id="content">
+                    <span class="display-6"
+                        style="background-color: black; color:white;font-weight: 900;">Decluttered</span>
+                    <p id="content" class="my-4">
 
                     </p>
                 </div>
@@ -217,7 +234,15 @@
         </div>
     </div>
 
-    <script src="{{url_for('static', filename='scripts/home.js')}}"></script>
+    <div class="container" id="errors">
+
+    </div>
+
+    <div class="container" id="myFooter">
+
+    </div>
+
+    <script src="{{url_for('static', filename='scripts/link.js')}}"></script>
 </body>
 
 </html>
